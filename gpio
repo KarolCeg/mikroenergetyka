@@ -1,0 +1,168 @@
+#include "DSP28x_Project.h"
+
+#define ZAD3
+
+#ifdef ZAD1
+void Setup(){
+    EALLOW;
+    GpioCtrlRegs.GPAMUX1.bit.GPIO9=0x00;
+    GpioCtrlRegs.GPADIR.bit.GPIO9=1;
+    GpioCtrlRegs.GPAPUD.bit.GPIO9=1;
+
+    GpioCtrlRegs.GPAMUX1.bit.GPIO11=0x00;
+    GpioCtrlRegs.GPADIR.bit.GPIO11=1;
+    GpioCtrlRegs.GPAPUD.bit.GPIO11=1;
+
+    GpioCtrlRegs.GPBMUX1.bit.GPIO34=0x00;
+    GpioCtrlRegs.GPBDIR.bit.GPIO34=1;
+    GpioCtrlRegs.GPBPUD.bit.GPIO34=1;
+
+    GpioCtrlRegs.GPBMUX2.bit.GPIO49=0x00;
+    GpioCtrlRegs.GPBDIR.bit.GPIO49=1;
+    GpioCtrlRegs.GPBPUD.bit.GPIO49=1;
+    EDIS;
+}
+
+int main(void)
+{
+    InitSysCtrl();
+    Setup();
+    //DINT;
+    GpioDataRegs.GPASET.bit.GPIO9=0;
+    GpioDataRegs.GPASET.bit.GPIO11=0;
+    GpioDataRegs.GPBSET.bit.GPIO34=0;
+    GpioDataRegs.GPBSET.bit.GPIO49=0;
+    while(1){
+
+       //asm(" NOP");
+    }
+
+}
+
+#endif
+
+#ifdef ZAD2
+void Setup(){
+    EALLOW;
+    GpioCtrlRegs.GPAMUX1.bit.GPIO9=0x00;
+    GpioCtrlRegs.GPADIR.bit.GPIO9=1;
+    GpioCtrlRegs.GPAPUD.bit.GPIO9=1;
+
+    GpioCtrlRegs.GPAMUX1.bit.GPIO11=0x00;
+    GpioCtrlRegs.GPADIR.bit.GPIO11=1;
+    GpioCtrlRegs.GPAPUD.bit.GPIO11=1;
+
+    GpioCtrlRegs.GPBMUX1.bit.GPIO34=0x00;
+    GpioCtrlRegs.GPBDIR.bit.GPIO34=1;
+    GpioCtrlRegs.GPBPUD.bit.GPIO34=1;
+
+    GpioCtrlRegs.GPBMUX2.bit.GPIO49=0x00;
+    GpioCtrlRegs.GPBDIR.bit.GPIO49=1;
+    GpioCtrlRegs.GPBPUD.bit.GPIO49=1;
+    EDIS;
+}
+int main(void)
+{
+    InitSysCtrl();
+    Setup();
+    DINT;
+    while(1){
+        DELAY_US(500000);
+        GpioDataRegs.GPBDAT.bit.GPIO49=0;
+        GpioDataRegs.GPADAT.bit.GPIO9=1;
+        DELAY_US(500000);
+        GpioDataRegs.GPADAT.bit.GPIO9=0;
+        DELAY_US(1000); //bez tego opoznienia led1 nie wylaczal sie
+        GpioDataRegs.GPADAT.bit.GPIO11=1;
+        DELAY_US(500000);
+        GpioDataRegs.GPADAT.bit.GPIO11=0;
+        GpioDataRegs.GPBDAT.bit.GPIO34=1;
+        DELAY_US(500000);
+        GpioDataRegs.GPBDAT.bit.GPIO34=0;
+        GpioDataRegs.GPBDAT.bit.GPIO49=1;
+
+       asm(" NOP");
+    }
+}
+#endif
+
+#ifdef ZAD3
+
+
+void Setup(){
+    EALLOW;
+    GpioCtrlRegs.GPAMUX1.bit.GPIO9=0x00;
+    GpioCtrlRegs.GPADIR.bit.GPIO9=1;
+    GpioCtrlRegs.GPAPUD.bit.GPIO9=1;
+
+    GpioCtrlRegs.GPAMUX1.bit.GPIO11=0x00;
+    GpioCtrlRegs.GPADIR.bit.GPIO11=1;
+    GpioCtrlRegs.GPAPUD.bit.GPIO11=1;
+
+    GpioCtrlRegs.GPBMUX1.bit.GPIO34=0x00;
+    GpioCtrlRegs.GPBDIR.bit.GPIO34=1;
+    GpioCtrlRegs.GPBPUD.bit.GPIO34=1;
+
+    GpioCtrlRegs.GPBMUX2.bit.GPIO49=0x00;
+    GpioCtrlRegs.GPBDIR.bit.GPIO49=1;
+    GpioCtrlRegs.GPBPUD.bit.GPIO49=1;
+    EDIS;
+}
+
+int main(void)
+{
+    InitSysCtrl();
+    Setup();
+    DINT;
+    while(1){
+        DELAY_US(500000);
+        GpioDataRegs.GPADAT.bit.GPIO11=0;
+        DELAY_US(1000); //bez tego opoznienia led2 nie wylaczal sie
+        GpioDataRegs.GPADAT.bit.GPIO9=1;
+        DELAY_US(500000);
+        GpioDataRegs.GPADAT.bit.GPIO9=0;
+        DELAY_US(1000); //bez tego opoznienia led1 nie wylaczal sie
+        GpioDataRegs.GPADAT.bit.GPIO11=1;
+        DELAY_US(500000);
+        GpioDataRegs.GPADAT.bit.GPIO11=0;
+        GpioDataRegs.GPBDAT.bit.GPIO34=1;
+        DELAY_US(500000);
+        GpioDataRegs.GPBDAT.bit.GPIO34=0;
+        GpioDataRegs.GPBDAT.bit.GPIO49=1;
+        DELAY_US(500000);
+
+        GpioDataRegs.GPBDAT.bit.GPIO49=0;
+        GpioDataRegs.GPBDAT.bit.GPIO34=1;
+        DELAY_US(500000);
+        GpioDataRegs.GPBDAT.bit.GPIO34=0;
+        GpioDataRegs.GPADAT.bit.GPIO11=1;
+
+       //asm(" NOP");
+    }
+}
+#endif
+
+#ifdef ZAD4
+
+void Setup(){
+    EALLOW;
+    GpioCtrlRegs.GPAMUX2.bit.GPIO17=0x00;
+    GpioCtrlRegs.GPADIR.bit.GPIO17=0;
+
+    GpioCtrlRegs.GPBMUX2.bit.GPIO48=0x00;
+    GpioCtrlRegs.GPBDIR.bit.GPIO48=0;
+    EDIS;
+}
+
+int main(void)
+{
+
+    InitSysCtrl();
+    Setup();
+    while(1){
+      int PB_1 = GpioDataRegs.GPADAT.bit.GPIO17;
+      int PB_2 = GpioDataRegs.GPBDAT.bit.GPIO48;
+       asm(" NOP");
+    }
+}
+#endif
