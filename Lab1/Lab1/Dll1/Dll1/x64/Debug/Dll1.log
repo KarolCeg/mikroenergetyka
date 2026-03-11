@@ -1,0 +1,45 @@
+﻿  dllmain.cpp
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\structures.h(2,1): warning C4067: nieoczekiwane tokeny występujące po dyrektywie preprocesora - oczekiwano nowego wiersza
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\structures.h(3,9): error C2008: '.': nieoczekiwany w definicji makra
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\function.h(2,1): warning C4067: nieoczekiwane tokeny występujące po dyrektywie preprocesora - oczekiwano nowego wiersza
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\function.h(3,9): error C2008: '.': nieoczekiwany w definicji makra
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\global_vars.h(3,1): warning C4067: nieoczekiwane tokeny występujące po dyrektywie preprocesora - oczekiwano nowego wiersza
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\global_vars.h(4,9): error C2008: '.': nieoczekiwany w definicji makra
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\global_vars.h(6,32): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\dllmain.cpp(26,17): warning C4244: "inicjowanie": konwersja z "const double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\dllmain.cpp(27,18): warning C4244: "inicjowanie": konwersja z "const double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\dllmain.cpp(50,13): warning C4244: "inicjowanie": konwersja z "double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\dllmain.cpp(52,24): warning C4305: "=": obcięcie z "double" do "float"
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+  function.cpp
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\structures.h(2,1): warning C4067: nieoczekiwane tokeny występujące po dyrektywie preprocesora - oczekiwano nowego wiersza
+  (kompilowanie pliku źródłowego „/function.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\structures.h(3,9): error C2008: '.': nieoczekiwany w definicji makra
+  (kompilowanie pliku źródłowego „/function.cpp”)
+  
+C:\Users\Student\Desktop\Lab1\Lab1\Dll1\function.cpp(12,54): warning C4244: "+=": konwersja z "double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/function.cpp”)
+  
+  Generowanie kodu...
