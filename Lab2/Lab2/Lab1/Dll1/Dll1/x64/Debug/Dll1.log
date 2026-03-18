@@ -1,0 +1,73 @@
+﻿  dllmain.cpp
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\global_var.h(5,30): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\global_var.h(7,33): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\global_var.h(8,33): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(24,17): warning C4244: "inicjowanie": konwersja z "const double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(25,18): warning C4244: "inicjowanie": konwersja z "const double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(28,28): warning C4244: "=": konwersja z "const double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(29,28): warning C4244: "=": konwersja z "const double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(30,28): warning C4244: "=": konwersja z "const double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(32,15): warning C4244: "inicjowanie": konwersja z "const double" do "float", możliwa utrata danych
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(51,25): error C2065: "id_ref": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(51,5): error C2660: "PID_CALC": funkcja nie przyjmuje 1 argumentów
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+      C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\functions.h(5,6):
+      zobacz deklarację „PID_CALC”
+      C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(51,5):
+      podczas próby dopasowania listy argumentów "(pid_reg *)"
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(57,25): error C2065: "iq_ref": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(57,5): error C2660: "PID_CALC": funkcja nie przyjmuje 1 argumentów
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+      C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\functions.h(5,6):
+      zobacz deklarację „PID_CALC”
+      C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(57,5):
+      podczas próby dopasowania listy argumentów "(pid_reg *)"
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(67,5): error C2660: "ab_ABC": funkcja nie przyjmuje 1 argumentów
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+      C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\functions.h(15,6):
+      zobacz deklarację „ab_ABC”
+      C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(67,5):
+      podczas próby dopasowania listy argumentów "(vec *)"
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(69,32): error C2065: "m": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(69,38): error C2065: "angle": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(70,32): error C2065: "m": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(70,38): error C2065: "angle": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(71,32): error C2065: "m": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
+C:\Users\Student\Downloads\Lab2\Lab2\Lab1\Dll1\dllmain.cpp(71,38): error C2065: "angle": niezadeklarowany identyfikator
+  (kompilowanie pliku źródłowego „/dllmain.cpp”)
+  
