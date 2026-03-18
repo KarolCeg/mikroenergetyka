@@ -48,13 +48,13 @@ DLLEXPORT void plecsOutput(struct SimulationState* aState)
      ///////////////////////////////////////////////////////////
     //id CONTROLLER
 
-    PID_CALC(&isd_reg, (id_ref - is.d));
+    PID_CALC(&isd_reg, (10.85 - is.d));
 
     ///////////////////////////////////////////////////////////
      ///////////////////////////////////////////////////////////
     //iq CONTROLLER
 
-    PID_CALC(&isq_reg, (iq_ref - is.q));
+    PID_CALC(&isq_reg, (n_reg.out - is.q)); //tu ma wpisane d zamiast q
 
     ///////////////////////////////////////////////////////////
     
