@@ -1,0 +1,138 @@
+
+
+#include "DSP28x_Project.h"
+
+void Gpio_set(void){
+
+    EALLOW; //ALLOW TO CONFIGURE WRITE PROTECTED REGISTERS
+
+    //SET PINS 12-15 AS INPUTS
+    GpioCtrlRegs.GPADIR.bit.GPIO12=0; //VOL-0
+    GpioCtrlRegs.GPADIR.bit.GPIO13=0; //VOL-1
+    GpioCtrlRegs.GPADIR.bit.GPIO14=0; //VOL-2
+    GpioCtrlRegs.GPADIR.bit.GPIO15=0; //VOL-3
+
+    //ENABLE PULLUP RESISTORS FOR PINS 12-15
+    GpioCtrlRegs.GPAPUD.bit.GPIO12=0;
+    GpioCtrlRegs.GPAPUD.bit.GPIO13=0;
+    GpioCtrlRegs.GPAPUD.bit.GPIO14=0;
+    GpioCtrlRegs.GPAPUD.bit.GPIO15=0;
+
+    //SET PINS 17, 48 AS INPUTS
+    GpioCtrlRegs.GPADIR.bit.GPIO17=0; //PB-1
+    GpioCtrlRegs.GPBDIR.bit.GPIO48=0; //PB-2
+
+    //ENABLE PULLUP RESISTORS FOR PINS 17, 48
+    GpioCtrlRegs.GPAPUD.bit.GPIO17=0;
+    GpioCtrlRegs.GPBPUD.bit.GPIO48=0;
+
+    //SET PINS 9, 11, 34, 49 AS OUTPUTS
+    GpioCtrlRegs.GPADIR.bit.GPIO9=1;  //LED-1
+    GpioCtrlRegs.GPADIR.bit.GPIO11=1; //LED-2
+    GpioCtrlRegs.GPBDIR.bit.GPIO34=1; //LED-3
+    GpioCtrlRegs.GPBDIR.bit.GPIO49=1; //LED-4
+
+    //ENABLE PULLUP RESISTORS FOR PINS 9, 11, 34, 49
+    GpioCtrlRegs.GPAPUD.bit.GPIO9=0;
+    GpioCtrlRegs.GPAPUD.bit.GPIO11=0;
+   GpioCtrlRegs.GPBPUD.bit.GPIO34=0;
+   GpioCtrlRegs.GPBPUD.bit.GPIO49=0;
+
+    //SET PINS 9, 11, 34, 49 TO INITIAL STATE ZERO
+    GpioDataRegs.GPADAT.bit.GPIO9=0;
+    GpioDataRegs.GPADAT.bit.GPIO11=0;
+    GpioDataRegs.GPBDAT.bit.GPIO34=0;
+    GpioDataRegs.GPBDAT.bit.GPIO49=0;
+
+    EDIS; //DENY TO CONFIGURE WRITE PROTECTED REGISTERS
+}
+
+int ENCODER_VAL = 0.0; //HEX ENCODER VALUE
+int SW_1 = 0.0; //PB-1 VALUE
+int SW_2 = 0.0; //PB-2 VALUE
+
+#define LED1_ON  GpioDataRegs.GPASET.bit.GPIO9 = 1;    //TURN ON LED1
+#define LED1_OFF  GpioDataRegs.GPACLEAR.bit.GPIO9 = 1; //TURN OFF LED1
+#define LED1_TOGGLE  GpioDataRegs.GPATOGGLE.bit.GPIO9 = 1; //TOGGLE LED1
+
+#define LED2_ON  GpioDataRegs.GPASET.bit.GPIO11 = 1;    //TURN ON LED2
+#define LED2_OFF  GpioDataRegs.GPACLEAR.bit.GPIO11 = 1; //TURN OFF LED2
+#define LED2_TOGGLE  GpioDataRegs.GPATOGGLE.bit.GPIO11 = 1; //TOGGLE LED2
+
+#define LED3_ON  GpioDataRegs.GPBSET.bit.GPIO34 = 1;    //TURN ON LED3
+#define LED3_OFF  GpioDataRegs.GPBCLEAR.bit.GPIO34 = 1; //TURN OFF LED3
+#define LED3_TOGGLE  GpioDataRegs.GPBTOGGLE.bit.GPIO34 = 1; //TOGGLE LED3
+
+#define LED4_ON  GpioDataRegs.GPBSET.bit.GPIO49 = 1;    //TURN ON LED4
+#define LED4_OFF  GpioDataRegs.GPBCLEAR.bit.GPIO49 = 1; //TURN OFF LED4
+#define LED4_TOGGLE  GpioDataRegs.GPBTOGGLE.bit.GPIO49 = 1; //TOGGLE LED4
+
+void main(void)
+{
+
+    //INIT SYSTEM REGISTERS
+    InitSysCtrl();
+
+    //INIT INTERRUPTS REGISTERS
+    InitPieCtrl();
+
+    //INIT GPIO REGISTERS
+    InitGpio();
+
+    //INIT TIMER REGISTERS
+    InitCpuTimers();
+
+    //SET GPIO REGISTERS
+    Gpio_set();
+
+    DINT; //DISABLE INTERRUPTS
+
+    while(1){
+
+        ENCODER_VAL = (GpioDataRegs.GPADAT.bit.GPIO15<<3) | (GpioDataRegs.GPADAT.bit.GPIO14<<2) | (GpioDataRegs.GPADAT.bit.GPIO13<<1) | (GpioDataRegs.GPADAT.bit.GPIO12<<0);
+
+
+        SW_1 = !(GpioDataRegs.GPADAT.bit.GPIO17)<<0;
+        SW_2 = !(GpioDataRegs.GPBDAT.bit.GPIO48)<<0;
+
+
+        switch (ENCODER_VAL) {
+            case 1:
+                DELAY_US(1000000);
+                      LED1_ON;
+                      LED2_TOGGLE;
+                      LED3_TOGGLE;
+                      LED4_ON;
+                      DELAY_US(1000000);
+                      LED1_OFF;
+                      LED4_OFF;
+                break;
+            case 2:
+                DELAY_US(1000000);
+                     LED1_ON;
+                     LED2_OFF;
+                     LED3_OFF;
+                     LED4_OFF;
+                     DELAY_US(1000000);
+                     LED1_TOGGLE;
+                     LED2_ON;
+                     LED3_OFF;
+                     LED4_OFF;
+                     DELAY_US(1000000);
+                      LED1_OFF;
+                     LED3_ON;
+                     LED2_TOGGLE;
+                     LED4_OFF;
+                     DELAY_US(1000000);
+                     LED1_OFF;
+                     LED4_TOGGLE;
+                     LED2_OFF;
+                     LED3_OFF;
+                break;
+            default:
+
+        };
+    };
+}
+
+
